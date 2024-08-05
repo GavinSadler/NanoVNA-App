@@ -3749,10 +3749,10 @@ void __fastcall TForm1::WMNewData(TMessage &msg)
 			if (CalibrationForm && data_unit.m_vna_data.type != UNIT_TYPE_TINYSA)
 				CalibrationForm->scanComplete(new_points);
 
-//			if (!settings.useVNACalibration && data_unit.m_vna_data.type != UNIT_TYPE_TINYSA)
-//				calibration.correct(calibration_module.m_calibration, points, true, true, true);	// use calibrations to correct
+			if (!settings.useVNACalibration && data_unit.m_vna_data.type != UNIT_TYPE_TINYSA)
+				calibration.correct(calibration_module.m_calibration, points, true, true, true);	// use calibrations to correct
 
-			recordDataToFile(new_points);	// stream the incoming (raw uncorrected) sparams to files
+			recordDataToFile(new_points);	// stream the incoming sparams to files
 		}
 
 		updateHistoryFramesInfo();
